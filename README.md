@@ -46,9 +46,10 @@ Allow users to switch between a board view (Kanban-style) and a list view for th
 
 Ensure the application is fully responsive, adapting to various screen sizes (mobile, tablet, desktop) with a mobile-first design approach.
 
-## The filterd=ed and search results will be displaying in the TOdo section in the list View. 
+### The filterded and search results will be displaying in the TOdo section in the list View. 
 
-## Challenges faced : Type Mismatches were the error i faced while doing this project.  TypeScript's primary job is to catch type errors before runtime.  This means it's very strict about ensuring that we're using variables and values in a way that's consistent with their declared types.
+## Challenges faced 
+ Type Mismatches were the error i faced while doing this project.  TypeScript's primary job is to catch type errors before runtime.  This means it's very strict about ensuring that we're using variables and values in a way that's consistent with their declared types.
 
 ## Technologies Used  <!-- Section Title -->
 - ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
