@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+ @apply bg-[#FFF9F9]
+ overflow-hidden 
+}
