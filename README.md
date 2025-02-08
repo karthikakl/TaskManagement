@@ -1,12 +1,12 @@
-#Task Management Application
+# Task Management Application
 
-##Features
+## Features
 
-###1. User Authentication
+### 1. User Authentication
 
 Implement user authentication using Firebase Authentication with Google Sign-In.
 
-###2. Task Management
+### 2. Task Management
 
 Enable users to create, edit, and delete tasks.
 
@@ -18,31 +18,31 @@ Implement drag-and-drop functionality to rearrange tasks within the list.
 
 Allow users to sort tasks based on due dates.
 
-###3. Batch Actions
+### 3. Batch Actions
 
 Enable users to perform batch actions on tasks (e.g., delete multiple tasks).
 
-###4. Task History and Activity Log
+### 4. Task History and Activity Log
 
 Implement a feature that tracks changes made to tasks (e.g., creation, edits) and displays an activity log for each task.
 
-###5. File Attachments
+### 5. File Attachments
 
 Enable users to attach files or documents to tasks for additional context.
 
 Implement a file upload feature in the task creation/editing form and display the attached files in the task detail view.
 
-###6. Filter Options
+### 6. Filter Options
 
 Implement filtering by tags, category, and date range.
 
 Enable search functionality by task title.
 
-###7. Board/List View
+### 7. Board/List View
 
 Allow users to switch between a board view (Kanban-style) and a list view for their tasks.
 
-###8. Responsive Design
+### 8. Responsive Design
 
 Ensure the application is fully responsive, adapting to various screen sizes (mobile, tablet, desktop) with a mobile-first design approach.
 
