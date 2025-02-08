@@ -46,6 +46,8 @@ Allow users to switch between a board view (Kanban-style) and a list view for th
 
 Ensure the application is fully responsive, adapting to various screen sizes (mobile, tablet, desktop) with a mobile-first design approach.
 
+## Challenges faced : Type Mismatches was a the error i faced.  TypeScript's primary job is to catch type errors before runtime.  This means it's very strict about ensuring that you're using variables and values in a way that's consistent with their declared types.
+
 ## Technologies Used  <!-- Section Title -->
 - ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
 - ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
