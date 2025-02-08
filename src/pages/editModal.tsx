@@ -44,7 +44,7 @@ const EditModal: React.FunctionComponent<IEditModalProps> = ({
               category: fetchedTask.category || '',
               dueDate: fetchedTask.dueDate || '',
               status: fetchedTask.status || 'pending',
-              fileUrl: fetchedTask.fileUrl,
+              fileUrl: fetchedTask.fileUrl!,
             });
           } else {
             console.error("Task not found");

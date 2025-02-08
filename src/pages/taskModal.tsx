@@ -2,7 +2,6 @@ import * as React from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/ReactToastify.css'
 import { useState,useContext } from 'react';
-import { useUserAuth } from "../context/userAuthContext";
 import { AuthContext, FirebaseContext } from "../store/Context";
 import { getAuth } from "firebase/auth";
 import { addTask } from '../Services/services';
@@ -21,7 +20,7 @@ const TaskModal: React.FunctionComponent<ITaskModalProps> = ({ isOpen, onClose }
         return <p>Loading...</p>;
       }
     
-      const { user } = authContext;
+    //   const { user } = authContext;
       const { app } = firebaseContext;
     
       const auth = getAuth(app);

@@ -137,18 +137,21 @@ const handleCancelMultipleDelete = () => {
   
   const {searchQuery,categoryFilter,dueDate} = props
 
-  const filteredTasks = tasks.filter((task)=>{
+  const filteredTasks = tasks.filter((task) => {
     const matchesSearch = task.taskName.toLowerCase().includes(searchQuery.toLowerCase());
-
     const matchesCategory = categoryFilter ? task.category === categoryFilter : true;
+
     const matchesDueDate = dueDate === 'today'
-      ? new Date(task.dueDate).toLocaleDateString() === new Date().toLocaleDateString()
-      : dueDate === 'this-week'
-        ? new Date(task.dueDate).getTime() >= new Date().getTime() && new Date(task.dueDate).getTime() <= new Date(new Date().setDate(new Date().getDate() + 7)).getTime()
-        : true;
+        ? task.dueDate ? new Date(task.dueDate).toLocaleDateString() === new Date().toLocaleDateString() : false // Handle undefined dueDate
+        : dueDate === 'this-week'
+            ? task.dueDate
+                ? new Date(task.dueDate).getTime() >= new Date().getTime() &&
+                  new Date(task.dueDate).getTime() <= new Date(new Date().setDate(new Date().getDate() + 7)).getTime()
+                : false // Handle undefined dueDate
+            : true;
 
     return matchesSearch && matchesCategory && matchesDueDate;
-  })
+});
 
   return (
     <div className="space-y-4">
@@ -416,7 +419,7 @@ const handleCancelMultipleDelete = () => {
                 isOpen={isConfirmModalOpen}
                 onClose={handleCancelMultipleDelete} // Updated close handler
                 onConfirm={handleConfirmMultipleDelete} // Updated confirm handler
-                message={checkedTasks.size > 1 ? "Are you sure you want to delete the selected tasks?" : "Are you sure you want to delete the selected task?"}
+               
             />
     </div>
     

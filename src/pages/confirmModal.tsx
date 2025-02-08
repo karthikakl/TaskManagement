@@ -4,6 +4,7 @@ interface IConfirmModalProps {
     isOpen: boolean;
     onClose: () => void;
     onConfirm: () => void;
+    
 }
 
 const ConfirmModal: React.FunctionComponent<IConfirmModalProps> = ({ isOpen, onClose, onConfirm }) => {

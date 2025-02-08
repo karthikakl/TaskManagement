@@ -6,6 +6,18 @@ const TASKS_COLLECTION = 'tasks'
 const USERS_COLLECTION = 'users'
 const ACTIVITY_COLLECTION = 'activity_logs'
 
+
+interface Task {
+  id: string;
+  taskName: string;
+  description?: string;
+  category: string;
+  dueDate?: string;
+  status?: string;
+  fileUrl?: string; 
+  
+}
+
 // log activity of tasks.
 export const logActivity = async(
   taskId:string,
@@ -69,6 +81,7 @@ export const editTask = async(
     taskName?:string;
     category?:string;
     description?:string;
+    dueDate?:string;
     status?:string
     fileUrl?:string|null
   }
@@ -147,38 +160,46 @@ export const getHistory=async(taskId:string)=>{
 
 //for getting tasks according to userId
 
-export const getUsersTasks = async(userId:string)=>{
+export const getUsersTasks = async (userId: string): Promise<Task[]> => {
   try {
-    const q =query(
-      collection(db,"tasks"),
-      where("userId","==",userId)
-      
-    )
-    const querySnapshot = await getDocs(q)
-    const tasks = querySnapshot.docs.map(doc=>({
-      id:doc.id,
-      ...doc.data()
-    }))
+      const q = query(
+          collection(db, "tasks"),
+          where("userId", "==", userId)
+      );
+      const querySnapshot = await getDocs(q);
 
-    console.log('tasks are in home', tasks)
-    return tasks;
-    
+      const tasks = querySnapshot.docs.map((doc) => {
+          const taskData = doc.data() as Omit<Task, "id">; // Exclude "id"
+          return {
+              id: doc.id,
+              ...taskData,
+          };
+      });
+
+      console.log('tasks are in home', tasks);
+      return tasks;
+
   } catch (error) {
-    console.error("Error fetching user tasks:", error);
+      console.error("Error fetching user tasks:", error);
+      return [];
   }
-}
+};
 
-export const getTaskById=async(taskId:string)=>{
+
+
+export const getTaskById = async (taskId: string): Promise<Task | undefined> => {
   try {
-    const taskRef = doc(db,'tasks',taskId);
-    const taskSnapshot = await getDoc(taskRef)
+      const taskRef = doc(db, 'tasks', taskId);
+      const taskSnapshot = await getDoc(taskRef);
 
-    if(taskSnapshot.exists()){
-      return{id:taskSnapshot.id,...taskSnapshot.data()}
-    }else{
-      throw new Error('Task not found')
-    }
+      if (taskSnapshot.exists()) {
+          const taskData = taskSnapshot.data(); // Get the data
+          return { id: taskSnapshot.id, ...taskData } as Task; // Type assertion
+      } else {
+          return undefined; // Return undefined if not found
+      }
   } catch (error) {
-    console.error('Error fetching task by ID:', error);
+      console.error('Error fetching task by ID:', error);
+      return undefined; // Return undefined in case of an error
   }
-}
+};

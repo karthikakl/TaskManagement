@@ -17,9 +17,9 @@ interface ITask {
   createdAt?: string;
 }
 
-const BoardView: React.FunctionComponent<IBoardViewProps> = (props) => {
+const BoardView: React.FunctionComponent<IBoardViewProps> = () => {
   const [tasks, setTasks] = React.useState<ITask[]>([]);
-  const [showOptions, setShowOptions] = React.useState<string | null>(null);
+  // const [showOptions, setShowOptions] = React.useState<string | null>(null);
   const [isModalOpen, setModalOpen] = useState(false); // Edit Modal
   const [isConfirmModalOpen, setConfirmModalOpen] = useState(false); // Confirm Modal
   const [selectedTaskId, setSelectedTaskId] = useState<string | null>(null); // Store selected taskId for editing
@@ -58,9 +58,9 @@ const BoardView: React.FunctionComponent<IBoardViewProps> = (props) => {
     setSelectedTaskId(null);
   };
 
-  const handleOptionsClick = (taskId: string) => {
-    setShowOptions(taskId === showOptions ? null : taskId);
-  };
+  // const handleOptionsClick = (taskId: string) => {
+  //   setShowOptions(taskId === showOptions ? null : taskId);
+  // };
 
   useEffect(() => {
     if (user) {

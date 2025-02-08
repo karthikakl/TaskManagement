@@ -11,7 +11,7 @@ interface ILoginProps {
   // onLogin: () => void;
 }
 
-const Login: React.FunctionComponent<ILoginProps> = (props) => {
+const Login: React.FunctionComponent<ILoginProps> = () => {
   const {googleSignIn} =useUserAuth();
   const navigate = useNavigate()
 

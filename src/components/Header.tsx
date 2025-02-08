@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { useUserAuth } from "../context/userAuthContext";
 import { AuthContext, FirebaseContext } from "../store/Context";
-import { getAuth } from "firebase/auth";
 import ListView from "../pages/listView";
 import BoardView from "../pages/boardView";
 import userImage from "../assets/images/userImage.png"
@@ -24,9 +23,9 @@ const Header: React.FunctionComponent = () => {
   }
 
   const { user } = authContext;
-  const { app } = firebaseContext;
+ 
 
-  const auth = getAuth(app);
+  
   const { logout } = useUserAuth();
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {

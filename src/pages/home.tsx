@@ -5,7 +5,7 @@ import Header from "../components/Header";
 interface IHomeProps {}
 
 const Home: React.FunctionComponent<IHomeProps> = () => {
-  const { logout, user } = useUserAuth();
+  const { user } = useUserAuth();
   console.log('Home in user:', user);
   return (
       <Header />
