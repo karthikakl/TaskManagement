@@ -26,7 +26,7 @@ const Context: React.FC<ContextProps> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
+    const unsubscribe = auth.onAuthStateChanged((user:User|null) => {
       setUser(user);
     });
     return () => unsubscribe();

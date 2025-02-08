@@ -7,7 +7,7 @@ import { getAuth } from 'firebase/auth';
 interface IProtectedRoutesProps {
 }
 
-const ProtectedRoutes: React.FunctionComponent<IProtectedRoutesProps> = (props) => {
+const ProtectedRoutes: React.FunctionComponent<IProtectedRoutesProps> = () => {
     const auth = getAuth()
     const [user,loading]=useAuthState(auth);
     const location =useLocation()
